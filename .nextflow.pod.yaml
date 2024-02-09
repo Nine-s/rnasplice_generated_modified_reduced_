@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: berserk-einstein
+  name: distracted-hawking
   namespace: default
-  labels: {app: nextflow, runName: berserk-einstein}
+  labels: {app: nextflow, runName: distracted-hawking}
 spec:
   restartPolicy: Never
   containers:
-  - name: berserk-einstein
+  - name: distracted-hawking
     image: nextflow/nextflow:23.09.3-edge
     command: [/bin/bash, -c, source /etc/nextflow/init.sh; nextflow run Nine-s/rnasplice_generated_modified_reduced_
-        -name berserk-einstein -resume last -r master]
+        -name distracted-hawking -resume last -r master]
     env:
     - {name: NXF_WORK, value: /workspace/ninon/work}
     - {name: NXF_ASSETS, value: /workspace/projects}
@@ -25,4 +25,4 @@ spec:
   - name: vol-1
     persistentVolumeClaim: {claimName: nextflow-ninon}
   - name: vol-2
-    configMap: {name: nf-config-497e6bb5}
+    configMap: {name: nf-config-2f19950a}

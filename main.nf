@@ -46,7 +46,7 @@ HISAT2_ALIGN(FASTQSPLIT_HISAT2.out.split_reads, HISAT2_INDEX.out.index, params.a
 SAMTOOLS(HISAT2_ALIGN.out.sam)
 TXIMPORT(MERGE_RESULTS_SALMON.out.gathered_bam, GFFREAD_TX2GENE.out.tx2gene)
 MULTIQC(SALMON_QUANT.out.json_info.collect(), TRIMGALORE.out.log.collect(), HISAT2_ALIGN.out.log_final.collect(), FASTQC.out.zip.collect())
-SAMTOOLS_MERGE_HISAT2(SAMTOOLS.out.bam..groupTuple())
+SAMTOOLS_MERGE_HISAT2(SAMTOOLS.out.bam.groupTuple())
 DEXSEQ_COUNT(SAMTOOLS_MERGE_HISAT2.out.merged, DEXSEQ_ANNOTATION.out.gff, params.alignment_quality)
 DRIMSEQ_FILTER(TXIMPORT.out.txi_dtu, TXIMPORT.out.tximport_tx2gene, params.csv_input, params.min_samps_gene_expr, params.min_samps_feature_expr, params.min_samps_feature_prop, params.min_feature_expr, params.min_feature_prop, params.min_gene_expr)
 BEDTOOLS_GENOMECOV(SAMTOOLS_MERGE_HISAT2.out.merged)
