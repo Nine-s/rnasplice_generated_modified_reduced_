@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: modest-lalande
+  name: fervent-wozniak
   namespace: default
-  labels: {app: nextflow, runName: modest-lalande}
+  labels: {app: nextflow, runName: fervent-wozniak}
 spec:
   restartPolicy: Never
   containers:
-  - name: modest-lalande
+  - name: fervent-wozniak
     image: nextflow/nextflow:23.09.3-edge
     command: [/bin/bash, -c, source /etc/nextflow/init.sh; nextflow run Nine-s/rnasplice_generated_modified_reduced_
-        -name modest-lalande -resume last -r master]
+        -name fervent-wozniak -resume last -r master]
     env:
     - {name: NXF_WORK, value: /workspace/ninon/work}
     - {name: NXF_ASSETS, value: /workspace/projects}
@@ -25,4 +25,4 @@ spec:
   - name: vol-1
     persistentVolumeClaim: {claimName: nextflow-ninon}
   - name: vol-2
-    configMap: {name: nf-config-e8342c1c}
+    configMap: {name: nf-config-bc0fb700}
