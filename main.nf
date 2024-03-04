@@ -33,7 +33,7 @@ workflow{
         
 HISAT2_INDEX(params.genome, params.annotation_gtf)
 TRIMGALORE(read_pairs_ch)
-FASTQC(read_pairs_ch)
+//FASTQC(read_pairs_ch)
 FASTQSPLIT_HISAT2(TRIMGALORE.out.preprocessed_reads)
 // GFFREAD_TX2GENE(params.annotation_gtf)
 // SALMON_GENOMEGENERATE(params.genome, params.transcripts_fasta)
